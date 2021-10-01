@@ -1,16 +1,39 @@
-# day35
+## Flutter Home Service Application Example - Day 35
 
-A new Flutter project.
+```dart
+class Afgprogrammer extends Flutter100DaysOfCode {
+  video() {
+    return {
+      "title": "Flutter Home Service Application Example",
+      "description": "Let’s make a home service application.",
+      "day": 35,
+    }
+  }
+}
+```
 
-## Getting Started
+Assets 
+* [icon8](https://icons8.com)
 
-This project is a starting point for a Flutter application.
+## Previous Designs
+[Checkout my Youtube channel](https://youtube.com/afgprogrammer)
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Development Setup
+Clone the repository and run the following commands:
+```
+flutter pub get
+flutter run
+```
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Screenshots
+### Select Service Page
+<img src="assets/screenshots/select-service-page.png" />
+
+
+## Links
+
+* [Website](https://afgprogrammer.com)
+* [Youtube channel](https://youtube.com/afgprogrammer)
+* [Twitter](https://twitter.com/afgprogrammer)
+* [Instagram](https://instagram.com/afgprogrammer)
