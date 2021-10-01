@@ -1,5 +1,6 @@
 import 'package:day35/animation/FadeAnimation.dart';
 import 'package:day35/models/service.dart';
+import 'package:day35/pages/cleaning.dart';
 import 'package:flutter/material.dart';
 
 void main () {
@@ -37,7 +38,14 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       floatingActionButton: selectedService >= 0 ? FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => CleaningPage(),
+            ),
+          );
+        },
         child: Icon(Icons.arrow_forward_ios, size: 20,),
         backgroundColor: Colors.blue,
       ) : null,
@@ -75,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                   physics: NeverScrollableScrollPhysics(),
                   itemCount: services.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return FadeAnimation((1.0 + index) / 4, serviceCard(services[index].imageURL, services[index].name, index));
+                    return FadeAnimation((1.0 + index) / 4, serviceContainer(services[index].imageURL, services[index].name, index));
                   }
                 ),
               ),
@@ -86,7 +94,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  serviceCard(String image, String name, int index) {
+  serviceContainer(String image, String name, int index) {
     return GestureDetector(
       onTap: () {
         setState(() {
