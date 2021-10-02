@@ -33,6 +33,10 @@ flutter run
 ### Cleaning Page
 <img src="assets/screenshots/cleaning-page.png" />
 
+### Date & Time Page
+<img src="assets/screenshots/date-and-time-page.png" />
+
+
 ## Links
 
 * [Website](https://afgprogrammer.com)
