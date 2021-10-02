@@ -30,6 +30,8 @@ flutter run
 ### Select Service Page
 <img src="assets/screenshots/select-service-page.png" />
 
+### Cleaning Page
+<img src="assets/screenshots/cleaning-page.png" />
 
 ## Links
 
