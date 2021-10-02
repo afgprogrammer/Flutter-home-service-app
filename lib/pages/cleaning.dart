@@ -1,4 +1,5 @@
 import 'package:day35/animation/FadeAnimation.dart';
+import 'package:day35/pages/date_time.dart';
 import 'package:flutter/material.dart';
 
 class CleaningPage extends StatefulWidget {
@@ -25,7 +26,14 @@ class _CleaningPageState extends State<CleaningPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       floatingActionButton: _selectedRooms.length > 0 ? FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => DateAndTime()
+            ),
+          );
+        },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -72,11 +80,10 @@ class _CleaningPageState extends State<CleaningPage> {
     return GestureDetector(
       onTap: () {
         setState(() {
-          if (_selectedRooms.contains(index)) {
+          if (_selectedRooms.contains(index))
             _selectedRooms.remove(index);
-          } else {
+          else 
             _selectedRooms.add(index);
-          }
         });
       },
       child: Container(
