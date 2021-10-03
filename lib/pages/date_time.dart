@@ -1,4 +1,5 @@
 import 'package:day35/animation/FadeAnimation.dart';
+import 'package:day35/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
@@ -117,8 +118,6 @@ class _DateAndTimeState extends State<DateAndTime> {
 
   @override
   void initState() {
-    // TODO: implement initState
-
     Future.delayed(Duration(milliseconds: 500), () {
       _scrollController.scrollTo(
         index: 24,
@@ -135,7 +134,14 @@ class _DateAndTimeState extends State<DateAndTime> {
     return Scaffold(
       backgroundColor: Colors.white,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => HomePage(),
+            ),
+          );
+        },
         child: Icon(Icons.arrow_forward_ios),
       ),
       body: NestedScrollView(
@@ -215,7 +221,7 @@ class _DateAndTimeState extends State<DateAndTime> {
                 ),
               ),
               SizedBox(height: 10,),
-              Container(
+              FadeAnimation(1.2, Container(
                 height: 60,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -227,7 +233,7 @@ class _DateAndTimeState extends State<DateAndTime> {
                   scrollDirection: Axis.horizontal,
                   itemCount: _hours.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return FadeAnimation((1 + index) / 6, GestureDetector(
+                    return GestureDetector(
                       onTap: () {
                         setState(() {
                           _selectedHour = _hours[index];
@@ -251,10 +257,10 @@ class _DateAndTimeState extends State<DateAndTime> {
                           ],
                         ),
                       ),
-                    ));
+                    );
                   }
                 ),
-              ),
+              )),
               SizedBox(height: 40,),
               FadeAnimation(1.2, Text("Repeat", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),)),
               SizedBox(height: 10,),
