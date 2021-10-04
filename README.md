@@ -36,6 +36,8 @@ flutter run
 ### Date & Time Page
 <img src="assets/screenshots/date-and-time-page.png" />
 
+### Home Page
+<img src="assets/screenshots/home-page.png" />
 
 ## Links
 
