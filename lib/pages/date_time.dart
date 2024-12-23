@@ -1,4 +1,4 @@
-import 'package:day35/animation/FadeAnimation.dart';
+import 'package:animate_do/animate_do.dart';
 import 'package:day35/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
@@ -148,7 +148,7 @@ class _DateAndTimeState extends State<DateAndTime> {
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return <Widget>[
             SliverToBoxAdapter(
-              child: FadeAnimation(1, Padding(
+              child: FadeInUp(child: Padding(
                 padding: EdgeInsets.only(top: 120.0, right: 20.0, left: 20.0),
                 child: Text(
                   'Select Date \nand Time',
@@ -168,7 +168,7 @@ class _DateAndTimeState extends State<DateAndTime> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 30,),
-              FadeAnimation(1, Row(
+              FadeInUp(child: Row(
                 children: [
                   Text("October 2021"),
                   Spacer(),
@@ -190,7 +190,9 @@ class _DateAndTimeState extends State<DateAndTime> {
                   scrollDirection: Axis.horizontal,
                   itemCount: _days.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return FadeAnimation((1 + index) / 6, GestureDetector(
+                    return FadeInUp(
+                      delay: Duration(milliseconds: 500 * index),
+                       child: GestureDetector(
                       onTap: () {
                         setState(() {
                           _selectedDay = _days[index][0];
@@ -221,7 +223,7 @@ class _DateAndTimeState extends State<DateAndTime> {
                 ),
               ),
               SizedBox(height: 10,),
-              FadeAnimation(1.2, Container(
+              FadeInUp(child: Container(
                 height: 60,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -262,7 +264,7 @@ class _DateAndTimeState extends State<DateAndTime> {
                 ),
               )),
               SizedBox(height: 40,),
-              FadeAnimation(1.2, Text("Repeat", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),)),
+              FadeInUp(child: Text("Repeat", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),)),
               SizedBox(height: 10,),
               Container(
                 height: 50,
@@ -280,7 +282,9 @@ class _DateAndTimeState extends State<DateAndTime> {
                           _selectedRepeat = index;
                         });
                       },
-                      child: FadeAnimation((1.2 + index) / 4, Container(
+                      child: FadeInUp(
+                        delay: Duration(milliseconds: 500 * index),
+                        child: Container(
                         padding: EdgeInsets.symmetric(horizontal: 20),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
@@ -296,7 +300,7 @@ class _DateAndTimeState extends State<DateAndTime> {
                 )
               ),
               SizedBox(height: 40,),
-              FadeAnimation(1.4, Text("Additional Service", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),)),
+              FadeInUp(child: Text("Additional Service", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),)),
               SizedBox(height: 10,),
               Container(
                 height: 120,
@@ -318,7 +322,9 @@ class _DateAndTimeState extends State<DateAndTime> {
                           }
                         });
                       },
-                      child: FadeAnimation((1.4 + index) / 4, Container(
+                      child: FadeInUp(
+                        delay: Duration(milliseconds: 500 * index),
+                        child: Container(
                         width: 110,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),

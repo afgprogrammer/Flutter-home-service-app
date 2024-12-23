@@ -1,5 +1,4 @@
-
-import 'package:day35/animation/FadeAnimation.dart';
+import 'package:animate_do/animate_do.dart';
 import 'package:day35/models/service.dart';
 import 'package:day35/pages/cleaning.dart';
 import 'package:flutter/material.dart';
@@ -47,7 +46,7 @@ class _SelectServiceState extends State<SelectService> {
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return <Widget>[
             SliverToBoxAdapter(
-              child: FadeAnimation(1.2, Padding(
+              child: FadeInUp(child: Padding(
                 padding: EdgeInsets.only(top: 120.0, right: 20.0, left: 20.0),
                 child: Text(
                   'Which service \ndo you need?',
@@ -77,7 +76,9 @@ class _SelectServiceState extends State<SelectService> {
                   physics: NeverScrollableScrollPhysics(),
                   itemCount: services.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return FadeAnimation((1.0 + index) / 4, serviceContainer(services[index].imageURL, services[index].name, index));
+                    return FadeInUp(
+                      delay: Duration(milliseconds: 500 * index),
+                      child: serviceContainer(services[index].imageURL, services[index].name, index));
                   }
                 ),
               ),

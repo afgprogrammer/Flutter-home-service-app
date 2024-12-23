@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:day35/animation/FadeAnimation.dart';
+import 'package:animate_do/animate_do.dart';
 import 'package:day35/models/service.dart';
 import 'package:day35/pages/select_service.dart';
 import 'package:flutter/material.dart';
@@ -43,6 +43,7 @@ class _StartPageState extends State<StartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade50,
       body: Column(
         children: [
           SizedBox(height: 100,),
@@ -60,7 +61,9 @@ class _StartPageState extends State<StartPage> {
               physics: NeverScrollableScrollPhysics(),
               itemCount: services.length,
               itemBuilder: (BuildContext context, int index) {
-                return FadeAnimation((1.0 + index) / 4, serviceContainer(services[index].imageURL, services[index].name, index));
+                return FadeInUp(
+                  delay: Duration(milliseconds: index * 100),
+                  child: serviceContainer(services[index].imageURL, services[index].name, index));
               }
             ),
           ),
@@ -76,7 +79,7 @@ class _StartPageState extends State<StartPage> {
               child: Column(
                 children: [
                   SizedBox(height: 50,),
-                  FadeAnimation(1.5, Container(
+                  FadeInUp(child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 40),
                     child: Center(
                       child: Text(
@@ -91,7 +94,7 @@ class _StartPageState extends State<StartPage> {
                     ),
                   )),
                   SizedBox(height: 20,),
-                  FadeAnimation(1.5, Container(
+                  FadeInUp(child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 60),
                     child: Center(
                       child: Text(
@@ -104,7 +107,7 @@ class _StartPageState extends State<StartPage> {
                       ),
                     ),
                   )),
-                  FadeAnimation(1.5, Padding(
+                  FadeInUp(child: Padding(
                     padding: EdgeInsets.all(50.0),
                     child: MaterialButton(
                       elevation: 0,

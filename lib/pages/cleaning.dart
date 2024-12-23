@@ -1,4 +1,4 @@
-import 'package:day35/animation/FadeAnimation.dart';
+import 'package:animate_do/animate_do.dart';
 import 'package:day35/pages/date_time.dart';
 import 'package:flutter/material.dart';
 
@@ -48,7 +48,7 @@ class _CleaningPageState extends State<CleaningPage> {
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return <Widget>[
             SliverToBoxAdapter(
-              child: FadeAnimation(1, Padding(
+              child: FadeInUp(child: Padding(
                 padding: EdgeInsets.only(top: 120.0, right: 20.0, left: 20.0),
                 child: Text(
                   'Where do you want \ncleaned?',
@@ -68,7 +68,10 @@ class _CleaningPageState extends State<CleaningPage> {
             physics: NeverScrollableScrollPhysics(),
             itemCount: _rooms.length,
             itemBuilder: (BuildContext context, int index) {
-              return FadeAnimation((1.2 + index) / 4, room(_rooms[index], index));
+              return FadeInUp(
+                delay: Duration(milliseconds: 500 * index),
+                duration: Duration(milliseconds: 500),
+               child: room(_rooms[index], index));
             }
           ),
         ),

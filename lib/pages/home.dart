@@ -1,4 +1,4 @@
-import 'package:day35/animation/FadeAnimation.dart';
+import 'package:animate_do/animate_do.dart';
 import 'package:day35/models/service.dart';
 import 'package:flutter/material.dart';
 
@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            FadeAnimation(1, Padding(
+            FadeInUp(child: Padding(
               padding: EdgeInsets.only(left: 20.0, top: 10.0, right: 10.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             )),
-            FadeAnimation(1.2, Padding(
+            FadeInUp(child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.0),
               child: Container(
                 padding: EdgeInsets.all(20.0),
@@ -117,7 +117,7 @@ class _HomePageState extends State<HomePage> {
               ),
             )),
             SizedBox(height: 20,),
-            FadeAnimation(1.3, Padding(
+            FadeInUp(child: Padding(
               padding: EdgeInsets.only(left: 20.0, right: 10.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -143,12 +143,14 @@ class _HomePageState extends State<HomePage> {
                 physics: NeverScrollableScrollPhysics(),
                 itemCount: services.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return FadeAnimation((1.0 + index) / 4, serviceContainer(services[index].imageURL, services[index].name, index));
+                  return FadeInUp(
+                    delay: Duration(milliseconds: 500 * index),
+                    child: serviceContainer(services[index].imageURL, services[index].name, index));
                 }
               ),
             ),
             SizedBox(height: 20,),
-            FadeAnimation(1.3, Padding(
+            FadeInUp(child: Padding(
               padding: EdgeInsets.only(left: 20.0, right: 10.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -168,7 +170,9 @@ class _HomePageState extends State<HomePage> {
                 scrollDirection: Axis.horizontal,
                 itemCount: workers.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return FadeAnimation((1.0 + index) / 4, workerContainer(workers[index][0], workers[index][1], workers[index][2], workers[index][3]));
+                  return FadeInUp(
+                    delay: Duration(milliseconds: 500 * index),
+                    child: workerContainer(workers[index][0], workers[index][1], workers[index][2], workers[index][3]));
                 }
               ),
             ),
